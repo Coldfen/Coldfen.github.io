@@ -136,9 +136,7 @@ class LocalStorageUtil {
 
         products = products.filter(product => product.id != id )
   
-        localStorage.setItem(this.keyName,JSON.stringify(products));
-        menuPizzaEditor.shoppingRender();
-        headerPage.headerRender(products.length);
+        this.updateAll(products);
         return products;
         }
 
@@ -151,7 +149,12 @@ class LocalStorageUtil {
       let products = this.getProducts();
 
       products = products.filter(product => product.id != id )
+      this.updateAll(products);
+      return products;
+    }
 
+
+    updateAll(products) {
       localStorage.setItem(this.keyName,JSON.stringify(products));
       menuPizzaEditor.shoppingRender();
       headerPage.headerRender(products.length);
