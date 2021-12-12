@@ -29,7 +29,7 @@ let CATALOG = [];
 
 preloaderPage.preloaderRender();
 
-fetch("http://myjson.dit.upm.es/api/bins/7l03")
+fetch("src/catalog.json")
 .then(res => res.json())
 .then(body => {
   CATALOG = body;
