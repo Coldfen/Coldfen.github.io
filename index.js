@@ -20,10 +20,8 @@ class Preloader {
     `;
 
     ROOT_PRELOADER.innerHTML = html;
-
    }
 }
-
 
 const preloaderPage = new Preloader();
 
@@ -52,17 +50,10 @@ function render (){
   headerPage.headerRender( productsStore.length);
   productsPage.render();
   
-
-  
-
-
 }
-
 
 class Products {
   render(){
-
-    
      let htmlCatalog =``;
 
     CATALOG.forEach(({ id, name,  price, composition, img }) => {
@@ -71,7 +62,7 @@ class Products {
          <img class = "products-element__img" src="${img}" />
          <span class = "products-element__name">${name}</span>
          <span class = "products-element__composition"><b>Состав:</b> ${composition}</span>
-         <button class = "products-element__btn"  onclick="shoppingCard.shoppingCardRender(this,'${id}');" >${price} <i class="fa fa-rub" aria-hidden="true"></i></button>
+         <button class = "products-element__btn"  onclick="shoppingCard.shoppingCardRender('${id}');" >${price} <i class="fa fa-rub" aria-hidden="true"></i></button>
        </li>
       
       `;
@@ -84,16 +75,8 @@ class Products {
       `;
 
       ROOT_MENU__PAGE.innerHTML = html;
-
-      
   }
-
- 
-   
 }
-
-
-
 
 class LocalStorageUtil {
   constructor(){
@@ -128,7 +111,6 @@ class LocalStorageUtil {
         return productsInCart 
     }
 
-
     productDellAll(){
       let productsInCart = this.getProducts();
 
@@ -140,8 +122,6 @@ class LocalStorageUtil {
       menuPizzaEditor.shoppingRender();
       headerPage.headerRender(products.length);
       return products;
-
-      
     }
 
     changeQuantity(id,hendler) {
@@ -162,14 +142,10 @@ class LocalStorageUtil {
         return products;
         }
 
-      
-
       localStorage.setItem(this.keyName,JSON.stringify(productsInCart));
       menuPizzaEditor.shoppingRender();
 
     }
-
-    
 
     delProducts(id){
       let products = this.getProducts();
@@ -202,19 +178,17 @@ class Header {
     ROOT_HEADER.innerHTML = headerHtml;
   }
 
-
 }
 
 
 class Shopping  {
       handleClear(){
         ROOT_MENU__PIZZA_EDITOR.innerHTML = ``;
-      }
+      };
 
-              hendlerOpenOrderConfirm(){
-                orderConfirm.orderConfirmRender();
-              };
-
+     hendlerOpenOrderConfirm(){
+       orderConfirm.orderConfirmRender();
+      };
 
       shoppingRender(){
       
@@ -226,7 +200,6 @@ class Shopping  {
           const product = CATALOG.find(item => item.id === curId.id) 
           if (product) { 
               const totalPriceByProduct = curId.quantity *+ product.price;
-              
               
               acc+= `<tr>
                 <td class = "shopping-element__name">🍕${product.name}</td>
@@ -246,8 +219,6 @@ class Shopping  {
           } 
       }, ``);
         
-     
-
         const html = `
         <div class = "shopping-container">
                             <div class="shopping__close" onclick="menuPizzaEditor.handleClear();"> </div>
@@ -260,7 +231,6 @@ class Shopping  {
                             </table>
                             <button class = "shopping-element__btn" onclick ="menuPizzaEditor.hendlerOpenOrderConfirm();">Заказать</button>
                     </div> `;
-        
         
         ROOT_MENU__PIZZA_EDITOR.innerHTML = html;
       }
@@ -289,27 +259,17 @@ class ShoppingCard {
     ROOT_SHOPPING_CARD.innerHTML = ``
   };
     
-
   handleAddLocalStorege(id){
     const products = localStorageUtil.putProducts(id)
-    
-
-
     headerPage.headerRender(products.length);
   };
 
-  shoppingCardRender(element,id){
+  shoppingCardRender(id){
      
-
-    
-
     let html = ``;
     let elementId = id;
 
     CATALOG.forEach(({ id, name,  price, composition,weight, img,Val:{protein,fat,carb,cal} }) => {
-
-
-
 
       if(elementId === id){
         html = `  <div class = "shoppingCard-wrapper">
@@ -334,8 +294,6 @@ class ShoppingCard {
     
       ROOT_SHOPPING_CARD.innerHTML = html;
 
-   
-
   }
 
   btnActiveClassAdd(element) {
@@ -348,7 +306,6 @@ class ShoppingCard {
    };
 
 }
-
 
 class OrderConfirm{
 
@@ -381,12 +338,10 @@ class OrderConfirm{
     ROOT_ORDER_CONFIRM.innerHTML = html;
   }
 
-
 }
 
 
 class OrderAccept {
-
 
   close(){
     ROOT_ORDER_ACCEPT.innerHTML = ``;
@@ -405,7 +360,6 @@ class OrderAccept {
 
   }
 
-  
   OrderAcceptMessage(){
     this. render();
     localStorageUtil.productDellAll();
@@ -413,9 +367,6 @@ class OrderAccept {
     menuPizzaEditor.handleClear();
     setTimeout(this.close,5000);
   }
-
-
-  
 
 }
 
