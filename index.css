@@ -354,7 +354,7 @@ top:0;
 }
 
 .orderConfirm__input{
-  width: 250px;
+  max-width: 45vh;
   height: 25px;
   border: none;
   outline: none;
@@ -383,7 +383,7 @@ top:0;
 
 .order-accept__message{
  width: 20%;
- height: 20h;
+ height: 25vh;
  position: fixed;
  top: 50%;
  left:50% ;
