@@ -394,15 +394,15 @@ top:0;
  0 6px 30px 5px rgba(33,37,41,.04), 
  0 8px 10px -5px rgba(33,37,41,.1); 
 font-weight: bold;
-font-size:max(2.8vh, min(1.5vh));
+font-size:max(1.5vw, min(0.7vw));
 }
 
 .order-accept__message>div{
-  margin-top: 2.5vh;
+  margin-top: 5%;
 }
 
 .order-accept__message>div>p{
-  padding-top:1.5vh;
+  padding-top:5%;
   margin:0;
 }
 
