@@ -383,19 +383,27 @@ top:0;
 
 .order-accept__message{
  width: 20%;
- height: 30vh;
+ height: 25vh;
  position: fixed;
+ text-align: center;
  top: 50%;
  left:50% ;
  transform: translate(-50%,-50%);
- margin: auto;
- padding: 30px;
  background-color: #dce3e3;
  box-shadow:0 16px 24px 2px rgba(33,37,41,.02), 
  0 6px 30px 5px rgba(33,37,41,.04), 
  0 8px 10px -5px rgba(33,37,41,.1); 
 font-weight: bold;
-font-size: 20px;
+font-size:max(2.8vh, min(1.5vh));
+}
+
+.order-accept__message>div{
+  margin-top: 2.5vh;
+}
+
+.order-accept__message>div>p{
+  padding-top:1.5vh;
+  margin:0;
 }
 
 .orderConfirm__btn:active{
